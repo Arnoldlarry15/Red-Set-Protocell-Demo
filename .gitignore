@@ -1,0 +1,89 @@
+# ===== Python / venv / caches =====
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pdb
+*.egg
+*.egg-info/
+dist/
+build/
+venv/
+env/
+.venv/
+.ENV/
+*.log
+*.sqlite3
+
+# ===== Flask / instance / config / secrets =====
+instance/
+instance/*
+.env
+*.env
+.env.local
+config.py
+config.json
+secrets.json
+
+# ===== RedSet specific =====
+# Sniper and Spotter runtime logs and dumps
+logs/
+logs/*
+sniper_logs/
+spotter_logs/
+sessions/
+sessions/*
+runs/
+runs/*
+
+# Temporary or uploaded files
+uploads/
+uploads/*
+tmp/
+tmp/*
+
+# API keys and local credentials
+openai_api_key.txt
+openai_key.txt
+api_keys/
+api_keys/*
+
+# ===== Frontend / Node (optional) =====
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.next/
+dist/
+build/
+.cache/
+
+# ===== Editors and OS =====
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.swp
+*.tmp
+.DS_Store
+Thumbs.db
+
+# ===== Testing / coverage / type check =====
+.coverage
+htmlcov/
+pytest_cache/
+.tox/
+.mypy_cache/
+
+# ===== Docker / deployment artifacts =====
+*.pid
+*.tar.gz
+*.bak
+docker-compose.override.yml
+.env.production
+.env.staging
+
+# ===== Optional: ignore local database and migrations =====
+migrations/
+migrations/*
+instance/*.db
