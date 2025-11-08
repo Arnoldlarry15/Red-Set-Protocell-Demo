@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>RedSet ProtoCell - Demo</title>
+    <link rel="stylesheet" href="/static/style.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1>RedSet ProtoCell - Demo</h1>
+      <p>Sniper/Spotter demo. Select a prompt and press Fire.</p>
+
+      <div class="controls">
+        <label for="prompt">Prompt:</label>
+        <select id="prompt">
+          {% for p in prompts %}
+          <option value="{{ p.id }}">{{ p.title }}</option>
+          {% endfor %}
+        </select>
+
+        <label><input type="checkbox" id="mutate"> Mutate</label>
+        <label for="mode">Mode:</label>
+        <select id="mode">
+          <option value="simulate">Simulate</option>
+          <option value="openai">OpenAI (optional)</option>
+        </select>
+
+        <button id="fireBtn">Fire</button>
+      </div>
+
+      <div class="output">
+        <h2>Prompt</h2>
+        <pre id="promptText">-</pre>
+
+        <h2>Response</h2>
+        <pre id="responseText">-</pre>
+
+        <h2>Spotter Analysis</h2>
+        <pre id="analysisText">-</pre>
+      </div>
+
+    </div>
+
+    <script>
+      document.getElementById('fireBtn').addEventListener('click', async () => {
+        const prompt_id = document.getElementById('prompt').value;
+        const mutate = document.getElementById('mutate').checked;
+        const mode = document.getElementById('mode').value;
+
+        const resp = await fetch('/fire', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ prompt_id, mutate, mode })
+        });
+
+        const data = await resp.json();
+        document.getElementById('promptText').textContent = data.prompt.text;
+        document.getElementById('responseText').textContent = data.response;
+        document.getElementById('analysisText').textContent = JSON.stringify(data.analysis, null, 2);
+      });
+    </script>
+  </body>
+</html>
