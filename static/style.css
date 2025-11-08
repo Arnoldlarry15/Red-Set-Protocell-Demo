@@ -1,0 +1,5 @@
+/* Minimal styles */
+body { font-family: Arial, sans-serif; background:#fafafa; color:#222; }
+.container { max-width:900px; margin:30px auto; padding:20px; background:#fff; border-radius:8px; box-shadow:0 6px 18px rgba(0,0,0,0.06); }
+.controls { display:flex; gap:10px; align-items:center; flex-wrap:wrap; margin-bottom:20px; }
+.output pre { background:#f4f4f4; padding:12px; border-radius:6px; }
