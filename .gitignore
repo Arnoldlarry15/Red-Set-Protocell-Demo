@@ -26,7 +26,6 @@ config.json
 secrets.json
 
 # ===== RedSet specific =====
-# Sniper and Spotter runtime logs and dumps
 logs/
 logs/*
 sniper_logs/
@@ -36,13 +35,11 @@ sessions/*
 runs/
 runs/*
 
-# Temporary or uploaded files
 uploads/
 uploads/*
 tmp/
 tmp/*
 
-# API keys and local credentials
 openai_api_key.txt
 openai_key.txt
 api_keys/
